@@ -123,9 +123,6 @@ wss.on('connection', (ws) => {
                 if(data.protobuf){
                     // send ToRadio packet as raw protobuf to meshtasticd
                     connection.sendRaw(Buffer.from(data.protobuf, "base64"));
-                } else if(data.json) {
-                    // send ToRadio packet created from json to meshtasticd
-                    connection.sendRaw(Protobuf.Mesh.ToRadio.fromJson(data.json).toBinary());
                 }
             }
 
