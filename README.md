@@ -88,7 +88,6 @@ For example, to send a text message to the default channel with the text `Hello 
 
 ## TODO
 
-- Add docs for sending/receiving packets over the websocket
 - Support proxying BLE and Serial connections.
 
 ## License
