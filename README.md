@@ -89,6 +89,7 @@ For example, to send a text message to the default channel with the text `Hello 
 ## TODO
 
 - Support proxying BLE and Serial connections.
+  - This already works, I just haven't exposed that connection method via config yet...
 
 ## License
 
