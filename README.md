@@ -40,6 +40,52 @@ Alternatively, you can run the latest version directly from npm without download
 npx @liamcottle/meshtastic-websocket-proxy --meshtastic-host 127.0.0.1 --websocket-port 8080
 ```
 
+## How to use the websocket?
+
+The websocket sends and receives json payloads, containing base64 encoded protobuf.
+
+For example, when your Meshtastic device receives a `TEXT_MESSAGE_APP` packet, it will send the following payload to all connected websocket clients;
+
+```
+{
+   "type": "from_radio",
+   "protobuf": "EjsNwHJFchUhJhvrIg8IARILSGVsbG8gTWVzaCE1JYEXZz0EkCNmRQAAwEBIBVABYO3//////////wF4BQ==",
+   "json": {
+      "packet": {
+         "from": 1917153984,
+         "to": 3944424993,
+         "decoded": {
+            "portnum": "TEXT_MESSAGE_APP",
+            "payload": "SGVsbG8gTWVzaCE="
+         },
+         "id": 1729593637,
+         "rxTime": 1713606660,
+         "rxSnr": 6,
+         "hopLimit": 5,
+         "wantAck": true,
+         "rxRssi": -19,
+         "hopStart": 5
+      }
+   }
+}
+```
+
+- `protobuf` contains the raw `FromRadio` packet encoded as base64.
+- `json` contains a decoded version of the protobuf for ease of use.
+
+You can also send packets to the websocket that will be sent to the radio. This will require you to correctly encode the protobuf and then send it as base64.
+
+For example, to send a text message to the default channel with the text `Hello from NodeJS!`, you would send the following to the websocket;
+
+```
+{
+  "type": "to_radio",
+  "protobuf": "Ch0V/////yIWCAESEkhlbGxvIGZyb20gTm9kZUpTIQ=="
+}
+```
+
+> NOTE: If you are unsure on how to encode the protobuf, see the [send.js](./examples/send.js) example script.
+
 ## TODO
 
 - Add docs for sending/receiving packets over the websocket
