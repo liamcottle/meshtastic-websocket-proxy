@@ -34,6 +34,12 @@ To proxy Meshtastic Linux Native over a websocket on port 8080, you could do som
 node src/index.js --meshtastic-host 127.0.0.1 --websocket-port 8080
 ```
 
+Alternatively, you can run the latest version directly from npm without downloading the source.
+
+```
+npx @liamcottle/meshtastic-websocket-proxy --meshtastic-host 127.0.0.1 --websocket-port 8080
+```
+
 ## TODO
 
 - Add docs for sending/receiving packets over the websocket
