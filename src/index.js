@@ -92,6 +92,7 @@ const config = {
 };
 
 // create websocket server
+// todo: ping all connected websocket clients every x seconds to avoid stale socket connections
 const wss = new WebSocketServer({
     port: config.websocket_port,
 });
