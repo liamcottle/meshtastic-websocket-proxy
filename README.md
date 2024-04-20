@@ -1,6 +1,6 @@
 # Meshtastic Websocket Proxy
 
-Proxies [ToRadio](https://github.com/meshtastic/protobufs/blob/master/meshtastic/mesh.proto#L1426) and [FromRadio](https://github.com/meshtastic/protobufs/blob/master/meshtastic/mesh.proto#L1336) packets between a single Meshtastic device and multiple websocket clients.
+Proxies [ToRadio](https://buf.build/meshtastic/protobufs/docs/main:meshtastic#meshtastic.ToRadio) and [FromRadio](https://buf.build/meshtastic/protobufs/docs/main:meshtastic#meshtastic.FromRadio) packets between a single Meshtastic device and multiple websocket clients.
 
 The `/api/v1/fromradio` endpoint of the [Meshtastic HTTP API](https://meshtastic.org/docs/development/device/http-api/) only supports one client connection at a time. If you have more than one client fetching the `fromradio` endpoint, one of the clients will "consume" those packets from the device, and they will not be received by the other clients.
 
