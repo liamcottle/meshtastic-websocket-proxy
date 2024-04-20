@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import fetch from "node-fetch";
 import * as https from "https";
 import { webcrypto } from "node:crypto";
